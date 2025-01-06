@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="it.univaq.disim.mde.architecture.network.ui.commands.category"
+            name="Network Architecture Category">
+      </category>
+      <command
+            categoryId="it.univaq.disim.mde.architecture.network.ui.commands.category"
+            name="Load  Network Architecture Model"
+            id="it.univaq.disim.mde.architecture.network.ui.commands.loadModelCommand">
+      </command>
+      <command
+            categoryId="it.univaq.disim.mde.architecture.network.ui.commands.category"
+            id="it.univaq.disim.mde.architecture.network.ui.commands.serializeNetworkDipenditiCoppitoCommand"
+            name="Serialize Network Dipenditi Coppito">
+      </command>
+      <command
+            categoryId="it.univaq.disim.mde.architecture.network.ui.commands.category"
+            id="it.univaq.disim.mde.architecture.network.ui.commands.serializeNetworkHomeCommand"
+            name="Serialize Network Home">
+      </command>
+      <command
+            categoryId="it.univaq.disim.mde.architecture.network.ui.commands.category"
+            id="it.univaq.disim.mde.architecture.network.ui.commands.validateNetworkArchitectureModelCommand"
+            name="Validate Network Architecture Model">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="it.univaq.disim.mde.architecture.network.ui.handlers.LoadNetworkArchitectureModelHandler"
+            commandId="it.univaq.disim.mde.architecture.network.ui.commands.loadModelCommand">
+      </handler>
+      <handler
+            class="it.univaq.disim.mde.architecture.network.ui.handlers.SerializeNetworkDipenditiCoppitoHandler"
+            commandId="it.univaq.disim.mde.architecture.network.ui.commands.serializeNetworkDipenditiCoppitoCommand">
+      </handler>
+      <handler
+            class="it.univaq.disim.mde.architecture.network.ui.handlers.SerializeNetworkHomeHandler"
+            commandId="it.univaq.disim.mde.architecture.network.ui.commands.serializeNetworkHomeCommand">
+      </handler>
+      <handler
+            class="it.univaq.disim.mde.architecture.network.ui.handlers.ValidateNetworkArchitectureModelHandler"
+            commandId="it.univaq.disim.mde.architecture.network.ui.commands.validateNetworkArchitectureModelCommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="it.univaq.disim.mde.architecture.network.ui.commands.loadModelCommand"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6">
+      </key>
+      <key
+            commandId="it.univaq.disim.mde.architecture.network.ui.commands.serializeNetworkDipenditiCoppitoCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+7">
+      </key>
+      <key
+            commandId="it.univaq.disim.mde.architecture.network.ui.commands.serializeNetworkHomeCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+8">
+      </key>
+      <key
+            commandId="it.univaq.disim.mde.architecture.network.ui.commands.validateNetworkArchitectureModelCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+9">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="it.univaq.disim.mde.architecture.network.ui.menus.networkArchitectureMenu"
+               label="Network Architecture Menu"
+               mnemonic="M">
+            <command
+                  commandId="it.univaq.disim.mde.architecture.network.ui.commands.loadModelCommand"
+                  id="it.univaq.disim.mde.architecture.network.ui.menus.networkArchitectureMenu"
+                  mnemonic="S">
+            </command>
+            <command
+                  commandId="it.univaq.disim.mde.architecture.network.ui.commands.serializeNetworkDipenditiCoppitoCommand"
+                  id="it.univaq.disim.mde.architecture.network.ui.menus.serializeNetworkDipenditiCoppitoMenu"
+                  mnemonic="S">
+            </command>
+            <command
+                  commandId="it.univaq.disim.mde.architecture.network.ui.commands.serializeNetworkHomeCommand"
+                  id="it.univaq.disim.mde.architecture.network.ui.menus.serializeNetworkHomeMenu"
+                  mnemonic="S">
+            </command>
+            <command
+                  commandId="it.univaq.disim.mde.architecture.network.ui.commands.validateNetworkArchitectureModelCommand"
+                  id="it.univaq.disim.mde.architecture.network.ui.menus.validateNetworkArchitectureModelMenu"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="it.univaq.disim.mde.architecture.network.ui.toolbars.networkArchitectureToolbar">
+            <command
+                  id="it.univaq.disim.mde.architecture.network.ui.toolbars.loadModelCommand"
+                  commandId="it.univaq.disim.mde.architecture.network.ui.commands.loadModelCommand"
+                  icon="icons/sample.png"
+                  tooltip="Load Network Architecture Model">
+            </command>
+            <command
+                  commandId="it.univaq.disim.mde.architecture.network.ui.commands.serializeNetworkDipenditiCoppitoCommand"
+                  icon="icons/sample.png"
+                  id="it.univaq.disim.mde.architecture.network.ui.toolbars.serializeNetworkDipenditiCoppitoCommand"
+                  tooltip="Serialize Network Dipenditi Coppito Model">
+            </command>
+            <command
+                  commandId="it.univaq.disim.mde.architecture.network.ui.commands.serializeNetworkHomeCommand"
+                  icon="icons/sample.png"
+                  id="it.univaq.disim.mde.architecture.network.ui.toolbars.serializeNetworkHomeCommand"
+                  tooltip="Serialize Network Home Model">
+            </command>
+            <command
+                  commandId="it.univaq.disim.mde.architecture.network.ui.commands.validateNetworkArchitectureModelCommand"
+                  icon="icons/sample.png"
+                  id="it.univaq.disim.mde.architecture.network.ui.toolbars.validateNetworkArchitectureModelCommand"
+                  tooltip="Validate Network Architecture Model">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>

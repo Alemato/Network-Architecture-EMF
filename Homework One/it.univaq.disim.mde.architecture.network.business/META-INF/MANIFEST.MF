@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Business
+Bundle-SymbolicName: it.univaq.disim.mde.architecture.network.business
+Bundle-Version: 1.0.0.qualifier
+Export-Package: it.univaq.disim.mde.architecture.network.business
+Require-Bundle: it.univaq.disim.mde.architecture.network;bundle-version="1.0.0",
+ org.eclipse.emf.ecore.xmi;bundle-version="2.38.0";visibility:=reexport,
+ org.apache.log4j;bundle-version="1.2.25",
+ com.google.guava;bundle-version="33.3.1"
+Automatic-Module-Name: it.univaq.disim.mde.architecture.network.business
+Bundle-RequiredExecutionEnvironment: JavaSE-21
