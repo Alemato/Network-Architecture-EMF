@@ -40,12 +40,20 @@ public class NetworkArchitectureValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "NetworkArchitecture";
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Valid Lan Port Number' of 'Port Number Element'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PORT_NUMBER_ELEMENT__VALID_LAN_PORT_NUMBER = 1;
+
+	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Valid Internal Ip Address' of 'Internal Ip Address Element'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int INTERNAL_IP_ADDRESS_ELEMENT__VALID_INTERNAL_IP_ADDRESS = 1;
+	public static final int INTERNAL_IP_ADDRESS_ELEMENT__VALID_INTERNAL_IP_ADDRESS = 2;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Valid Public Ip Addres' of 'Network'.
@@ -53,7 +61,7 @@ public class NetworkArchitectureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int NETWORK__VALID_PUBLIC_IP_ADDRES = 2;
+	public static final int NETWORK__VALID_PUBLIC_IP_ADDRES = 3;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Valid Channel For Frequency' of 'Wifi'.
@@ -61,7 +69,7 @@ public class NetworkArchitectureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int WIFI__VALID_CHANNEL_FOR_FREQUENCY = 3;
+	public static final int WIFI__VALID_CHANNEL_FOR_FREQUENCY = 4;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Valid Subnet' of 'VLAN'.
@@ -69,7 +77,7 @@ public class NetworkArchitectureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int VLAN__VALID_SUBNET = 6;
+	public static final int VLAN__VALID_SUBNET = 7;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Valid Ip Gateway' of 'VLAN'.
@@ -77,7 +85,7 @@ public class NetworkArchitectureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int VLAN__VALID_IP_GATEWAY = 7;
+	public static final int VLAN__VALID_IP_GATEWAY = 8;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Valid Upper Ip' of 'VLAN'.
@@ -85,7 +93,7 @@ public class NetworkArchitectureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int VLAN__VALID_UPPER_IP = 4;
+	public static final int VLAN__VALID_UPPER_IP = 5;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Valid Lower Ip' of 'VLAN'.
@@ -93,7 +101,7 @@ public class NetworkArchitectureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int VLAN__VALID_LOWER_IP = 5;
+	public static final int VLAN__VALID_LOWER_IP = 6;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Valid Network Interface' of 'Static Route'.
@@ -101,7 +109,7 @@ public class NetworkArchitectureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int STATIC_ROUTE__VALID_NETWORK_INTERFACE = 8;
+	public static final int STATIC_ROUTE__VALID_NETWORK_INTERFACE = 9;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Valid Network Destination' of 'Static Route'.
@@ -109,7 +117,7 @@ public class NetworkArchitectureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int STATIC_ROUTE__VALID_NETWORK_DESTINATION = 9;
+	public static final int STATIC_ROUTE__VALID_NETWORK_DESTINATION = 10;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Metric Positive' of 'Static Route'.
@@ -117,7 +125,7 @@ public class NetworkArchitectureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int STATIC_ROUTE__METRIC_POSITIVE = 10;
+	public static final int STATIC_ROUTE__METRIC_POSITIVE = 11;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Valid Gateway' of 'Static Route'.
@@ -125,7 +133,7 @@ public class NetworkArchitectureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int STATIC_ROUTE__VALID_GATEWAY = 11;
+	public static final int STATIC_ROUTE__VALID_GATEWAY = 12;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Valid Netmask' of 'Static Route'.
@@ -133,7 +141,7 @@ public class NetworkArchitectureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int STATIC_ROUTE__VALID_NETMASK = 12;
+	public static final int STATIC_ROUTE__VALID_NETMASK = 13;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -141,7 +149,7 @@ public class NetworkArchitectureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 12;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 13;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -241,7 +249,27 @@ public class NetworkArchitectureValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validatePortNumberElement(PortNumberElement portNumberElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(portNumberElement, diagnostics, context);
+		if (!validate_NoCircularContainment(portNumberElement, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(portNumberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(portNumberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(portNumberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(portNumberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(portNumberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(portNumberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(portNumberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(portNumberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePortNumberElement_ValidLanPortNumber(portNumberElement, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the ValidLanPortNumber constraint of '<em>Port Number Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePortNumberElement_ValidLanPortNumber(PortNumberElement portNumberElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return portNumberElement.ValidLanPortNumber(diagnostics, context);
 	}
 
 	/**
@@ -346,6 +374,7 @@ public class NetworkArchitectureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(router, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(router, diagnostics, context);
 		if (result || diagnostics != null) result &= validateInternalIpAddressElement_ValidInternalIpAddress(router, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePortNumberElement_ValidLanPortNumber(router, diagnostics, context);
 		return result;
 	}
 
@@ -365,6 +394,7 @@ public class NetworkArchitectureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(switchL3, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(switchL3, diagnostics, context);
 		if (result || diagnostics != null) result &= validateInternalIpAddressElement_ValidInternalIpAddress(switchL3, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePortNumberElement_ValidLanPortNumber(switchL3, diagnostics, context);
 		return result;
 	}
 
@@ -384,6 +414,7 @@ public class NetworkArchitectureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(acccessPoint, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(acccessPoint, diagnostics, context);
 		if (result || diagnostics != null) result &= validateInternalIpAddressElement_ValidInternalIpAddress(acccessPoint, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePortNumberElement_ValidLanPortNumber(acccessPoint, diagnostics, context);
 		return result;
 	}
 
@@ -433,6 +464,7 @@ public class NetworkArchitectureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(switchL2, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(switchL2, diagnostics, context);
 		if (result || diagnostics != null) result &= validateInternalIpAddressElement_ValidInternalIpAddress(switchL2, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePortNumberElement_ValidLanPortNumber(switchL2, diagnostics, context);
 		return result;
 	}
 

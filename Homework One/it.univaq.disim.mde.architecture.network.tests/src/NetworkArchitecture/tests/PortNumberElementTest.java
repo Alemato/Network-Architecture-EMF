@@ -14,6 +14,7 @@ import junit.framework.TestCase;
  * The following operations are tested:
  * <ul>
  *   <li>{@link NetworkArchitecture.PortNumberElement#isValidLanPortNumber() <em>Is Valid Lan Port Number</em>}</li>
+ *   <li>{@link NetworkArchitecture.PortNumberElement#ValidLanPortNumber(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Valid Lan Port Number</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -66,6 +67,19 @@ public abstract class PortNumberElementTest extends TestCase {
 	 * @generated
 	 */
 	public void testIsValidLanPortNumber() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link NetworkArchitecture.PortNumberElement#ValidLanPortNumber(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Valid Lan Port Number</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see NetworkArchitecture.PortNumberElement#ValidLanPortNumber(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	public void testValidLanPortNumber__DiagnosticChain_Map() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

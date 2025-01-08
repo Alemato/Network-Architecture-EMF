@@ -2,6 +2,8 @@
  */
 package NetworkArchitecture;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see NetworkArchitecture.NetworkArchitecturePackage#getPortNumberElement()
  * @model abstract="true"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='ValidLanPortNumber'"
  * @generated
  */
 public interface PortNumberElement extends EObject {
@@ -51,5 +54,13 @@ public interface PortNumberElement extends EObject {
 	 * @generated
 	 */
 	boolean isValidLanPortNumber();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='\n        \tself.isValidLanPortNumber()'"
+	 * @generated
+	 */
+	boolean ValidLanPortNumber(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // PortNumberElement

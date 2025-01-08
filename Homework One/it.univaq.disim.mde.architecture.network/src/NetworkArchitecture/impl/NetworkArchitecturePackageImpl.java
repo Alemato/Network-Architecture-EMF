@@ -309,6 +309,16 @@ public class NetworkArchitecturePackageImpl extends EPackageImpl implements Netw
 	 * @generated
 	 */
 	@Override
+	public EOperation getPortNumberElement__ValidLanPortNumber__DiagnosticChain_Map() {
+		return portNumberElementEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getInternalIpAddressElement() {
 		return internalIpAddressElementEClass;
 	}
@@ -1098,6 +1108,7 @@ public class NetworkArchitecturePackageImpl extends EPackageImpl implements Netw
 		portNumberElementEClass = createEClass(PORT_NUMBER_ELEMENT);
 		createEAttribute(portNumberElementEClass, PORT_NUMBER_ELEMENT__PORT_NUMBER);
 		createEOperation(portNumberElementEClass, PORT_NUMBER_ELEMENT___IS_VALID_LAN_PORT_NUMBER);
+		createEOperation(portNumberElementEClass, PORT_NUMBER_ELEMENT___VALID_LAN_PORT_NUMBER__DIAGNOSTICCHAIN_MAP);
 
 		internalIpAddressElementEClass = createEClass(INTERNAL_IP_ADDRESS_ELEMENT);
 		createEAttribute(internalIpAddressElementEClass, INTERNAL_IP_ADDRESS_ELEMENT__INTERNAL_IP_ADDRESS);
@@ -1251,13 +1262,22 @@ public class NetworkArchitecturePackageImpl extends EPackageImpl implements Netw
 
 		initEOperation(getPortNumberElement__IsValidLanPortNumber(), ecorePackage.getEBoolean(), "isValidLanPortNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(internalIpAddressElementEClass, InternalIpAddressElement.class, "InternalIpAddressElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getInternalIpAddressElement_InternalIpAddress(), ecorePackage.getEString(), "internalIpAddress", null, 1, 1, InternalIpAddressElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		EOperation op = initEOperation(getInternalIpAddressElement__ValidInternalIpAddress__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "ValidInternalIpAddress", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getPortNumberElement__ValidLanPortNumber__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "ValidLanPortNumber", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
 		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(internalIpAddressElementEClass, InternalIpAddressElement.class, "InternalIpAddressElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getInternalIpAddressElement_InternalIpAddress(), ecorePackage.getEString(), "internalIpAddress", null, 1, 1, InternalIpAddressElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getInternalIpAddressElement__ValidInternalIpAddress__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "ValidInternalIpAddress", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
@@ -1502,6 +1522,12 @@ public class NetworkArchitecturePackageImpl extends EPackageImpl implements Netw
 		   new String[] {
 		   });
 		addAnnotation
+		  (portNumberElementEClass,
+		   source,
+		   new String[] {
+			   "constraints", "ValidLanPortNumber"
+		   });
+		addAnnotation
 		  (internalIpAddressElementEClass,
 		   source,
 		   new String[] {
@@ -1546,6 +1572,12 @@ public class NetworkArchitecturePackageImpl extends EPackageImpl implements Netw
 		   source,
 		   new String[] {
 			   "body", "\n\t            portNumber >= 1 and portNumber <= 48"
+		   });
+		addAnnotation
+		  (getPortNumberElement__ValidLanPortNumber__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "body", "\n        \tself.isValidLanPortNumber()"
 		   });
 		addAnnotation
 		  (getInternalIpAddressElement__ValidInternalIpAddress__DiagnosticChain_Map(),

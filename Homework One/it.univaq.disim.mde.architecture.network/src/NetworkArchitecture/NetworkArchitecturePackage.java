@@ -134,13 +134,22 @@ public interface NetworkArchitecturePackage extends EPackage {
 	int PORT_NUMBER_ELEMENT___IS_VALID_LAN_PORT_NUMBER = 0;
 
 	/**
+	 * The operation id for the '<em>Valid Lan Port Number</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PORT_NUMBER_ELEMENT___VALID_LAN_PORT_NUMBER__DIAGNOSTICCHAIN_MAP = 1;
+
+	/**
 	 * The number of operations of the '<em>Port Number Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_NUMBER_ELEMENT_OPERATION_COUNT = 1;
+	int PORT_NUMBER_ELEMENT_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link NetworkArchitecture.impl.InternalIpAddressElementImpl <em>Internal Ip Address Element</em>}' class.
@@ -580,13 +589,22 @@ public interface NetworkArchitecturePackage extends EPackage {
 	int ROUTER___IS_VALID_LAN_PORT_NUMBER = INTERNAL_IP_ADDRESS_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Valid Lan Port Number</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER___VALID_LAN_PORT_NUMBER__DIAGNOSTICCHAIN_MAP = INTERNAL_IP_ADDRESS_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Router</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTER_OPERATION_COUNT = INTERNAL_IP_ADDRESS_ELEMENT_OPERATION_COUNT + 1;
+	int ROUTER_OPERATION_COUNT = INTERNAL_IP_ADDRESS_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link NetworkArchitecture.impl.SwitchL3Impl <em>Switch L3</em>}' class.
@@ -734,13 +752,22 @@ public interface NetworkArchitecturePackage extends EPackage {
 	int SWITCH_L3___IS_VALID_LAN_PORT_NUMBER = INTERNAL_IP_ADDRESS_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Valid Lan Port Number</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH_L3___VALID_LAN_PORT_NUMBER__DIAGNOSTICCHAIN_MAP = INTERNAL_IP_ADDRESS_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Switch L3</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SWITCH_L3_OPERATION_COUNT = INTERNAL_IP_ADDRESS_ELEMENT_OPERATION_COUNT + 1;
+	int SWITCH_L3_OPERATION_COUNT = INTERNAL_IP_ADDRESS_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link NetworkArchitecture.impl.AcccessPointImpl <em>Acccess Point</em>}' class.
@@ -861,13 +888,22 @@ public interface NetworkArchitecturePackage extends EPackage {
 	int ACCCESS_POINT___IS_VALID_LAN_PORT_NUMBER = INTERNAL_IP_ADDRESS_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Valid Lan Port Number</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACCCESS_POINT___VALID_LAN_PORT_NUMBER__DIAGNOSTICCHAIN_MAP = INTERNAL_IP_ADDRESS_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Acccess Point</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACCCESS_POINT_OPERATION_COUNT = INTERNAL_IP_ADDRESS_ELEMENT_OPERATION_COUNT + 1;
+	int ACCCESS_POINT_OPERATION_COUNT = INTERNAL_IP_ADDRESS_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link NetworkArchitecture.impl.WifiImpl <em>Wifi</em>}' class.
@@ -1106,13 +1142,22 @@ public interface NetworkArchitecturePackage extends EPackage {
 	int SWITCH_L2___IS_VALID_LAN_PORT_NUMBER = INTERNAL_IP_ADDRESS_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Valid Lan Port Number</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH_L2___VALID_LAN_PORT_NUMBER__DIAGNOSTICCHAIN_MAP = INTERNAL_IP_ADDRESS_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Switch L2</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SWITCH_L2_OPERATION_COUNT = INTERNAL_IP_ADDRESS_ELEMENT_OPERATION_COUNT + 1;
+	int SWITCH_L2_OPERATION_COUNT = INTERNAL_IP_ADDRESS_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link NetworkArchitecture.impl.VLANImpl <em>VLAN</em>}' class.
@@ -1489,6 +1534,16 @@ public interface NetworkArchitecturePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPortNumberElement__IsValidLanPortNumber();
+
+	/**
+	 * Returns the meta object for the '{@link NetworkArchitecture.PortNumberElement#ValidLanPortNumber(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Valid Lan Port Number</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Valid Lan Port Number</em>' operation.
+	 * @see NetworkArchitecture.PortNumberElement#ValidLanPortNumber(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getPortNumberElement__ValidLanPortNumber__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link NetworkArchitecture.InternalIpAddressElement <em>Internal Ip Address Element</em>}'.
@@ -2361,6 +2416,14 @@ public interface NetworkArchitecturePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PORT_NUMBER_ELEMENT___IS_VALID_LAN_PORT_NUMBER = eINSTANCE.getPortNumberElement__IsValidLanPortNumber();
+
+		/**
+		 * The meta object literal for the '<em><b>Valid Lan Port Number</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PORT_NUMBER_ELEMENT___VALID_LAN_PORT_NUMBER__DIAGNOSTICCHAIN_MAP = eINSTANCE.getPortNumberElement__ValidLanPortNumber__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link NetworkArchitecture.impl.InternalIpAddressElementImpl <em>Internal Ip Address Element</em>}' class.
