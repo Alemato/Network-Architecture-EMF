@@ -58,7 +58,7 @@
 
 [license-shield]: https://img.shields.io/github/license/Alemato/Network-Architecture-EMF?style=for-the-badge
 
-[license-url]: https://github.com/Alemato/Network-Architecture-EMF/blob/master/LICENSE.txt
+[license-url]: https://github.com/Alemato/Network-Architecture-EMF/blob/master/LICENSE
 
 # Network Architecture Modeling with EMF
 The project aims to demonstrate the application of EMF in network modeling and provide a framework for analyzing network design, validating configurations, and generating code or simulations for real-world scenarios.
