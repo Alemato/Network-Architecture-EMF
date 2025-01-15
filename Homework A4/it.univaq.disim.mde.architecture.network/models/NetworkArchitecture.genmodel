@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/it.univaq.disim.mde.architecture.network/src"
+    modelPluginID="it.univaq.disim.mde.architecture.network" modelName="NetworkArchitecture"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="21.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>NetworkArchitecture.ecore</foreignModel>
+  <genPackages prefix="NetworkArchitecture" disposableProviderFactory="true" ecorePackage="NetworkArchitecture.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="NetworkArchitecture.ecore#//GatewayTechnology">
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//GatewayTechnology/IP"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//GatewayTechnology/LTE"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//GatewayTechnology/FiveG"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//GatewayTechnology/Coaxial"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//GatewayTechnology/UMTS"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//GatewayTechnology/ADSL"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//GatewayTechnology/ADSL_Plus"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//GatewayTechnology/ADSL_2"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//GatewayTechnology/FTTC"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//GatewayTechnology/FTTH"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="NetworkArchitecture.ecore#//NATTechnology">
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//NATTechnology/Static_NAT"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//NATTechnology/Dynamic_NAT"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//NATTechnology/Port_Address_Translation"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//NATTechnology/One_To_One_NAT"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//NATTechnology/Dual_NAT"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//NATTechnology/Twice_NAT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="NetworkArchitecture.ecore#//RoutingProtocol">
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//RoutingProtocol/RIP"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//RoutingProtocol/OSPF"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//RoutingProtocol/EIGRP"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//RoutingProtocol/IS_IS"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//RoutingProtocol/BGP"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//RoutingProtocol/IGRP"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="NetworkArchitecture.ecore#//AuthenticationWifi">
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//AuthenticationWifi/shared"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//AuthenticationWifi/open"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//AuthenticationWifi/wpa_version_2"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//AuthenticationWifi/sea"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="NetworkArchitecture.ecore#//EncryptionModeWifi">
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//EncryptionModeWifi/aes_ccm"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//EncryptionModeWifi/wep"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="NetworkArchitecture.ecore#//OperatingFrequency">
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//OperatingFrequency/Ghz_2_4"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//OperatingFrequency/Ghz_5"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//OperatingFrequency/Ghz_6"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//OperatingFrequency/Ghz_60"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="NetworkArchitecture.ecore#//PortType">
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//PortType/Voip"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//PortType/Access"/>
+      <genEnumLiterals ecoreEnumLiteral="NetworkArchitecture.ecore#//PortType/Trunk"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="NetworkArchitecture.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="NetworkArchitecture.ecore#//PortNumberElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//PortNumberElement/portNumber"/>
+      <genOperations ecoreOperation="NetworkArchitecture.ecore#//PortNumberElement/isValidLanPortNumber"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="NetworkArchitecture.ecore#//InternalIpAddressElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//InternalIpAddressElement/internalIpAddress"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="NetworkArchitecture.ecore#//FirmwareElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//FirmwareElement/model"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//FirmwareElement/osVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//FirmwareElement/operatingSystem"/>
+    </genClasses>
+    <genClasses ecoreClass="NetworkArchitecture.ecore#//Network">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//Network/publicIpAddres"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NetworkArchitecture.ecore#//Network/vlans"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NetworkArchitecture.ecore#//Network/gateway"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NetworkArchitecture.ecore#//Network/wifis"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//Network/networkDevicesCount"/>
+    </genClasses>
+    <genClasses ecoreClass="NetworkArchitecture.ecore#//Gateway">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//Gateway/tecnology"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//Gateway/nat"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NetworkArchitecture.ecore#//Gateway/router"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NetworkArchitecture.ecore#//Gateway/vlan"/>
+    </genClasses>
+    <genClasses ecoreClass="NetworkArchitecture.ecore#//Router">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//Router/routingProtocol"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NetworkArchitecture.ecore#//Router/vlans"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NetworkArchitecture.ecore#//Router/switchL3"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NetworkArchitecture.ecore#//Router/staticRoute"/>
+    </genClasses>
+    <genClasses ecoreClass="NetworkArchitecture.ecore#//SwitchL3">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//SwitchL3/routingProtocol"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NetworkArchitecture.ecore#//SwitchL3/vlans"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NetworkArchitecture.ecore#//SwitchL3/switchL2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NetworkArchitecture.ecore#//SwitchL3/staticRoute"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NetworkArchitecture.ecore#//SwitchL3/accessPoints"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//SwitchL3/totalConnectedDevices"/>
+    </genClasses>
+    <genClasses ecoreClass="NetworkArchitecture.ecore#//AccessPoint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//AccessPoint/maxClientSupport"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NetworkArchitecture.ecore#//AccessPoint/wifis"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NetworkArchitecture.ecore#//AccessPoint/vlan"/>
+    </genClasses>
+    <genClasses ecoreClass="NetworkArchitecture.ecore#//Wifi">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//Wifi/ssid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//Wifi/frequency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//Wifi/channel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//Wifi/authentication"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//Wifi/encryption"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NetworkArchitecture.ecore#//Wifi/vlan"/>
+      <genOperations ecoreOperation="NetworkArchitecture.ecore#//Wifi/isValidChannelForFrequency"/>
+    </genClasses>
+    <genClasses ecoreClass="NetworkArchitecture.ecore#//SwitchL2">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//SwitchL2/portType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference NetworkArchitecture.ecore#//SwitchL2/vlans"/>
+    </genClasses>
+    <genClasses ecoreClass="NetworkArchitecture.ecore#//VLAN">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//VLAN/idVLan"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//VLAN/mtu"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//VLAN/subnet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//VLAN/ipGateway"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//VLAN/lowerIp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//VLAN/upperIp"/>
+    </genClasses>
+    <genClasses ecoreClass="NetworkArchitecture.ecore#//StaticRoute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//StaticRoute/networkDestination"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//StaticRoute/netmask"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//StaticRoute/gateway"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//StaticRoute/netInterface"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NetworkArchitecture.ecore#//StaticRoute/metric"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

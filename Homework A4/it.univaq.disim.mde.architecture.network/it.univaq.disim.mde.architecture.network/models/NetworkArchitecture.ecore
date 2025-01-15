@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="NetworkArchitecture" nsURI="https://it.univaq.disim.mde/NA"
+    nsPrefix="NA">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PortNumberElement" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="ValidLanPortNumber"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="ValidLanPortNumber" value="&#xA;        &#x9;self.isValidLanPortNumber()"/>
+    </eAnnotations>
+    <eOperations name="isValidLanPortNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="body" value="&#xA;&#x9;            portNumber >= 1 and portNumber &lt;= 48"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="portNumber" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InternalIpAddressElement" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="ValidInternalIpAddress"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="ValidInternalIpAddress" value="&#xA;&#x9;&#x9;    internalIpAddress.matches('^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;&#x9;                                   '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;&#x9;                                   '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;&#x9;                                   '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$')"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="internalIpAddress" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FirmwareElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="model" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="osVersion" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operatingSystem" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Network" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="ValidPublicIpAddres"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="ValidPublicIpAddres" value="&#xA;&#x9;        publicIpAddres.matches('^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                       '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                       '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                       '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$')"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="publicIpAddres" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vlans" lowerBound="1" upperBound="-1"
+        eType="#//VLAN" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gateway" lowerBound="1"
+        eType="#//Gateway" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wifis" upperBound="-1"
+        eType="#//Wifi" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="networkDevicesCount" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" volatile="true"
+        transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="derivation" value="&#xA;&#x9;&#x9;   &#x9;-- Calcola il numero totale di dispositivi nella rete navigando &#xA;&#x9;        -- attraverso le reference definite nel modello:&#xA;&#x9;        -- Network -> Gateway -> Router -> SwitchL3 -> (SwitchL2, AccessPoint).&#xA;&#x9;        -- gatewayCount: conta il Gateway se presente.&#xA;&#x9;        -- routerCount: conta il Router collegato al Gateway se presente.&#xA;&#x9;        -- switchL3Count: conta tutti i SwitchL3 collegati al Router.&#xA;&#x9;        -- switchL2Count: per ogni SwitchL3, conta i relativi SwitchL2 collegati.&#xA;&#x9;        -- accessPointCount: per ogni SwitchL3, conta gli AccessPoint collegati.&#xA;&#x9;        let gatewayCount: Integer = if gateway.oclIsUndefined() then 0 else 1 endif,&#xA;&#x9;            routerCount: Integer = if gateway.oclIsUndefined() then 0 else &#xA;&#x9;                if gateway.router.oclIsUndefined() then 0 else 1 endif endif,&#xA;&#x9;            switchL3Count: Integer = if gateway.oclIsUndefined() or gateway.router.oclIsUndefined() then 0 else&#xA;&#x9;                gateway.router.switchL3->size() endif,&#xA;&#x9;            switchL2Count: Integer = if gateway.oclIsUndefined() or gateway.router.oclIsUndefined() then 0 else&#xA;&#x9;                gateway.router.switchL3->collect(switchL3 | switchL3.switchL2->size())->sum() endif,&#xA;&#x9;            accessPointCount: Integer = if gateway.oclIsUndefined() or gateway.router.oclIsUndefined() then 0 else&#xA;&#x9;                gateway.router.switchL3->collect(switchL3 | switchL3.accessPoints->size())->sum() endif in&#xA;&#x9;        &#x9;gatewayCount + routerCount + switchL3Count + switchL2Count + accessPointCount"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Gateway" eSuperTypes="#//InternalIpAddressElement #//NamedElement #//FirmwareElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tecnology" lowerBound="1"
+        eType="#//GatewayTechnology"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nat" lowerBound="1" eType="#//NATTechnology"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="router" lowerBound="1"
+        eType="#//Router" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vlan" lowerBound="1" eType="#//VLAN"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Router" eSuperTypes="#//InternalIpAddressElement #//NamedElement #//FirmwareElement #//PortNumberElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="routingProtocol" lowerBound="1"
+        eType="#//RoutingProtocol"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vlans" lowerBound="1" upperBound="-1"
+        eType="#//VLAN"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="switchL3" upperBound="-1"
+        eType="#//SwitchL3" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="staticRoute" upperBound="-1"
+        eType="#//StaticRoute" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SwitchL3" eSuperTypes="#//InternalIpAddressElement #//NamedElement #//FirmwareElement #//PortNumberElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="routingProtocol" lowerBound="1"
+        eType="#//RoutingProtocol"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vlans" lowerBound="1" upperBound="-1"
+        eType="#//VLAN"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="switchL2" upperBound="-1"
+        eType="#//SwitchL2" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="staticRoute" upperBound="-1"
+        eType="#//StaticRoute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accessPoints" ordered="false"
+        upperBound="-1" eType="#//AccessPoint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalConnectedDevices"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="derivation" value="&#xA;&#x9;            switchL2->size() + accessPoints->size()"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AccessPoint" eSuperTypes="#//InternalIpAddressElement #//NamedElement #//FirmwareElement #//PortNumberElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxClientSupport" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wifis" unique="false" lowerBound="1"
+        upperBound="-1" eType="#//Wifi"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vlan" lowerBound="1" eType="#//VLAN"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Wifi" eSuperTypes="#//InternalIpAddressElement #//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="ValidChannelForFrequency"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="ValidChannelForFrequency" value="&#xA;        &#x9;self.isValidChannelForFrequency()"/>
+    </eAnnotations>
+    <eOperations name="isValidChannelForFrequency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="body" value="&#xA;&#x9;&#x9;        if frequency = OperatingFrequency::Ghz_2_4 then&#xA;&#x9;&#x9;            channel >= 1 and channel &lt;= 14&#xA;&#x9;&#x9;        elseif frequency = OperatingFrequency::Ghz_5 then&#xA;&#x9;&#x9;            channel = 36 or channel = 40 or channel = 44 or channel = 48 or&#xA;&#x9;&#x9;            channel = 52 or channel = 56 or channel = 60 or channel = 64 or&#xA;&#x9;&#x9;            channel = 100 or channel = 104 or channel = 108 or channel = 112 or&#xA;&#x9;&#x9;            channel = 116 or channel = 120 or channel = 124 or channel = 128 or&#xA;&#x9;&#x9;            channel = 132 or channel = 136 or channel = 140 or channel = 144 or&#xA;&#x9;&#x9;            channel = 149 or channel = 153 or channel = 157 or channel = 161 or&#xA;&#x9;&#x9;            channel = 165&#xA;&#x9;&#x9;        else&#xA;&#x9;&#x9;            true -- Per altre frequenze, non ci sono restrizioni definite.&#xA;&#x9;&#x9;        endif"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ssid" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="frequency" lowerBound="1"
+        eType="#//OperatingFrequency"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="channel" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="authentication" lowerBound="1"
+        eType="#//AuthenticationWifi"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="encryption" lowerBound="1"
+        eType="#//EncryptionModeWifi"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vlan" lowerBound="1" eType="#//VLAN"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SwitchL2" eSuperTypes="#//InternalIpAddressElement #//NamedElement #//FirmwareElement #//PortNumberElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="portType" lowerBound="1"
+        eType="#//PortType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vlans" lowerBound="1" upperBound="-1"
+        eType="#//VLAN"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VLAN" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="ValidSubnet ValidIpGateway ValidLowerIp ValidUpperIp"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="ValidSubnet" value="subnet.matches('^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                                          '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                                          '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                                          '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$')"/>
+      <details key="ValidIpGateway" value="ipGateway.matches('^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                                                '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                                                '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                                                '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$')"/>
+      <details key="ValidLowerIp" value="lowerIp.matches('^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                                            '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                                            '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                                            '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$')"/>
+      <details key="ValidUpperIp" value="upperIp.matches('^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                                            '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                                            '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                                            '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$')"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idVLan" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mtu" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subnet" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ipGateway" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lowerIp" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="upperIp" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StaticRoute" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="ValidNetworkDestination ValidNetmask ValidGateway ValidNetworkInterface MetricPositive"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="ValidNetworkDestination" value="&#xA;&#x9;        networkDestination.matches('^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                                   '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                                   '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                                   '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$')"/>
+      <details key="ValidNetmask" value="&#xA;&#x9;        netmask.matches('^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                        '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                        '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                        '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$')"/>
+      <details key="ValidGateway" value="&#xA;&#x9;        gateway.matches('^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                        '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                        '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                        '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$')"/>
+      <details key="ValidNetworkInterface" value="&#xA;&#x9;        netInterface.matches('^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                          '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                          '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.' +&#xA;&#x9;                          '(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$')"/>
+      <details key="MetricPositive" value="&#xA;&#x9;        metric > 0"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="networkDestination" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="netmask" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gateway" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="netInterface" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metric" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GatewayTechnology">
+    <eLiterals name="IP"/>
+    <eLiterals name="LTE" value="1"/>
+    <eLiterals name="FiveG" value="2"/>
+    <eLiterals name="Coaxial" value="3"/>
+    <eLiterals name="UMTS" value="4"/>
+    <eLiterals name="ADSL" value="5"/>
+    <eLiterals name="ADSL_Plus" value="6"/>
+    <eLiterals name="ADSL_2" value="7"/>
+    <eLiterals name="FTTC" value="8"/>
+    <eLiterals name="FTTH" value="9"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="NATTechnology">
+    <eLiterals name="Static_NAT"/>
+    <eLiterals name="Dynamic_NAT" value="1"/>
+    <eLiterals name="Port_Address_Translation" value="2"/>
+    <eLiterals name="One_To_One_NAT" value="3"/>
+    <eLiterals name="Dual_NAT" value="4"/>
+    <eLiterals name="Twice_NAT" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RoutingProtocol">
+    <eLiterals name="RIP"/>
+    <eLiterals name="OSPF" value="1"/>
+    <eLiterals name="EIGRP" value="2"/>
+    <eLiterals name="IS_IS" value="3"/>
+    <eLiterals name="BGP" value="4"/>
+    <eLiterals name="IGRP" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AuthenticationWifi">
+    <eLiterals name="shared"/>
+    <eLiterals name="open" value="1"/>
+    <eLiterals name="wpa_version_2" value="2"/>
+    <eLiterals name="sea" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EncryptionModeWifi">
+    <eLiterals name="aes_ccm"/>
+    <eLiterals name="wep" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OperatingFrequency">
+    <eLiterals name="Ghz_2_4"/>
+    <eLiterals name="Ghz_5" value="1"/>
+    <eLiterals name="Ghz_6" value="2"/>
+    <eLiterals name="Ghz_60" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PortType">
+    <eLiterals name="Voip"/>
+    <eLiterals name="Access" value="1"/>
+    <eLiterals name="Trunk" value="2"/>
+  </eClassifiers>
+</ecore:EPackage>

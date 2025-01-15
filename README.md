@@ -31,25 +31,12 @@
     <li>
             <a href="#exam-Requirements">Exam Requirements</a>
         <ul>
-            <li><a href="#homework-1---EMF-and-OCL">Homework 1 - EMF and OCL</a></li>
-            <li><a href="#homework-2---Transformations">Homework 2 - Transformations</a></li>
+            <li><a href="#homework-A4---EMF-and-OCL">Homework A4 - EMF and OCL</a></li>
+            <li><a href="#homework-A5---Transformations">Homework A5 - Transformations</a></li>
         </ul>
     </li>
 <!--
-    <li>
-            <a href="#component-diagram">Component Diagram</a>
-        <ul>
-            <li><a href="#components">Components</a></li>
-            <li><a href="#additional-notes">Additional Notes</a></li>
-        </ul>
-    </li>
 -->
-    <li>
-      <a href="#implementation">Implementation</a>
-      <ul>
-        <li><a href="#sensor-simualtion">Sensor Simulator</a></li>
-      </ul>
-    </li>
     <li><a href="https://github.com/Alemato/Network-Architecture-EMF/blob/main/LICENSE">License</a></li>
   </ol>
 </details>
@@ -81,7 +68,7 @@ Developed as part of a university coursework in Model Driven Engineering at Univ
 # Exam Requirements
 Two Homeworks must be completed for the examination (EMF and OCL and Transformations). The requirements for each Homework are listed below
 
-## Homework 1 - EMF and OCL
+## Homework A4 - EMF and OCL
 This homework is about the use of the EMF platforms for modeling the domain defined in the previous works. In particular, it requires the realization of a number of tasks by using the following tools/notations:
 * Eclipse modeling Framework and plugins development;
 * Ecore metamodel and genmodel;
@@ -128,7 +115,7 @@ Define metamodel constraints (and “critiques” in the case of EVL), operation
 * 2 operations  
 * 2 derived fields (only for OCL).
 
-## Homework 2 - Transformations
+## Homework A5 - Transformations
 This homework is about the use of model transformations. It requires the realization of several tasks by using the following languages/frameworks: ATL and Acceleo.
 
 ### Task 1
