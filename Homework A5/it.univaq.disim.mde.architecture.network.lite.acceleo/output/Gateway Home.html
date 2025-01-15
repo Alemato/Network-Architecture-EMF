@@ -1,0 +1,322 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>All in One - Gateway Home</title>
+    <!-- Bootstrap CSS -->
+    <link 
+      rel="stylesheet" 
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+      crossorigin="anonymous"
+    >
+</head>
+<body class="bg-light">
+
+<div class="container my-5">
+
+    <div class="card mb-4">
+      <div class="card-body">
+        <h1 class="card-title text-primary">Network: Gateway Home</h1>
+        <p class="card-text">
+          <strong>Public IP:</strong> 185.224.114.19
+        </p>
+      </div>
+    </div>
+
+    <!-- Sezione Gateway -->
+    <div class="accordion mb-4" id="accordionGateway">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingGateway">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGateway" aria-expanded="false" aria-controls="collapseGateway">
+            Gateway
+          </button>
+        </h2>
+        <div id="collapseGateway" class="accordion-collapse collapse" aria-labelledby="headingGateway" data-bs-parent="#accordionGateway">
+          <div class="accordion-body">
+
+              <p>
+                <strong>Nome:</strong> Home<br/>
+                <strong>Modello:</strong> FRITZ!Box 5690 Pro<br/>
+                <strong>OS:</strong> FRITZ!OS (7.90)<br/>
+                <strong>Porta:</strong> 2<br/>
+                <strong>Tecnologia:</strong> IP<br/>
+                <strong>NAT:</strong> Static_NAT
+              </p>
+                <div class="card mt-3">
+                  <div class="card-header bg-secondary text-white">
+                    Router: Home
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text">
+                      <strong>Modello:</strong> FRITZ!Box 5690 Pro<br/>
+                      <strong>OS:</strong> FRITZ!OS (7.90)<br/>
+                      <strong>IP interno:</strong> 192.168.0.1<br/>
+                      <strong>Port Number:</strong> 5<br/>
+                      <strong>Routing Protocol:</strong> RIP
+                    </p>
+                
+                      <h5 class="card-title mt-3">Switch L3 collegati</h5>
+                        <div class="card my-2 ms-3 border-dark">
+                          <div class="card-header">
+                            Switch L3: Home
+                          </div>
+                          <div class="card-body">
+                            <p>
+                              <strong>Modello:</strong> FRITZ!Box 5690 Pro<br/>
+                              <strong>OS:</strong> FRITZ!OS (7.90)<br/>
+                              <strong>IP interno:</strong> 192.168.0.1<br/>
+                              <strong>Porte:</strong> 5<br/>
+                              <strong>Routing Protocol:</strong> OSPF
+                            </p>
+                        
+                        
+                              <h6>Access Points collegati</h6>
+                                <div class="card my-2 ms-4 border-info">
+                                  <div class="card-header">
+                                    Access Point: Home
+                                  </div>
+                                  <div class="card-body">
+                                    <p>
+                                      <strong>Modello:</strong> FRITZ!Box 5690 Pro<br/>
+                                      <strong>OS:</strong> FRITZ!OS (7.90)<br/>
+                                      <strong>IP interno:</strong> 192.168.0.1<br/>
+                                      <strong>Porte:</strong> 1<br/>
+                                      <strong>Max Client Support:</strong> 300
+                                    </p>
+                                
+                                    <p>
+                                      <strong>VLAN di appartenenza:</strong>
+                                      <div class="card my-2 ms-4 border-warning">
+                                        <div class="card-header">
+                                          VLAN: Default (ID: 0)
+                                        </div>
+                                        <div class="card-body">
+                                          <ul class="mb-0">
+                                            <li><strong>MTU:</strong> 1500</li>
+                                            <li><strong>Subnet:</strong> 255.255.255.0</li>
+                                            <li><strong>Gateway IP:</strong> 192.168.0.1</li>
+                                            <li><strong>Range IP:</strong> 192.168.0.2 - 192.168.0.254</li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </p>
+                                
+                                      <h6>Wifi collegate</h6>
+                                        <div class="card my-2 ms-4 border-primary">
+                                          <div class="card-header">
+                                            Wifi: HOME 2.4
+                                          </div>
+                                          <div class="card-body">
+                                            <ul class="mb-0">
+                                              <li><strong>SSID:</strong> HOME</li>
+                                              <li><strong>Frequenza:</strong> Ghz_2_4</li>
+                                              <li><strong>Canale:</strong> 11</li>
+                                              <li><strong>Autenticazione:</strong> shared</li>
+                                              <li><strong>Cifratura:</strong> aes_ccm</li>
+                                              <li><strong>IP interno:</strong> 192.168.0.2</li>
+                                            </ul>
+                                            <p class="mt-2">
+                                              <strong>VLAN associata:</strong>  
+                                              <div class="card my-2 ms-4 border-warning">
+                                                <div class="card-header">
+                                                  VLAN: Default (ID: 0)
+                                                </div>
+                                                <div class="card-body">
+                                                  <ul class="mb-0">
+                                                    <li><strong>MTU:</strong> 1500</li>
+                                                    <li><strong>Subnet:</strong> 255.255.255.0</li>
+                                                    <li><strong>Gateway IP:</strong> 192.168.0.1</li>
+                                                    <li><strong>Range IP:</strong> 192.168.0.2 - 192.168.0.254</li>
+                                                  </ul>
+                                                </div>
+                                              </div>
+                                            </p>
+                                          </div>
+                                        </div>
+                                        <div class="card my-2 ms-4 border-primary">
+                                          <div class="card-header">
+                                            Wifi: HOME 5
+                                          </div>
+                                          <div class="card-body">
+                                            <ul class="mb-0">
+                                              <li><strong>SSID:</strong> HOME</li>
+                                              <li><strong>Frequenza:</strong> Ghz_5</li>
+                                              <li><strong>Canale:</strong> 140</li>
+                                              <li><strong>Autenticazione:</strong> open</li>
+                                              <li><strong>Cifratura:</strong> aes_ccm</li>
+                                              <li><strong>IP interno:</strong> 192.168.0.2</li>
+                                            </ul>
+                                            <p class="mt-2">
+                                              <strong>VLAN associata:</strong>  
+                                              <div class="card my-2 ms-4 border-warning">
+                                                <div class="card-header">
+                                                  VLAN: Default (ID: 0)
+                                                </div>
+                                                <div class="card-body">
+                                                  <ul class="mb-0">
+                                                    <li><strong>MTU:</strong> 1500</li>
+                                                    <li><strong>Subnet:</strong> 255.255.255.0</li>
+                                                    <li><strong>Gateway IP:</strong> 192.168.0.1</li>
+                                                    <li><strong>Range IP:</strong> 192.168.0.2 - 192.168.0.254</li>
+                                                  </ul>
+                                                </div>
+                                              </div>
+                                            </p>
+                                          </div>
+                                        </div>
+                                  </div>
+                                </div>
+                        
+                              <h6>VLAN collegate</h6>
+                                <div class="card my-2 ms-4 border-warning">
+                                  <div class="card-header">
+                                    VLAN: Default (ID: 0)
+                                  </div>
+                                  <div class="card-body">
+                                    <ul class="mb-0">
+                                      <li><strong>MTU:</strong> 1500</li>
+                                      <li><strong>Subnet:</strong> 255.255.255.0</li>
+                                      <li><strong>Gateway IP:</strong> 192.168.0.1</li>
+                                      <li><strong>Range IP:</strong> 192.168.0.2 - 192.168.0.254</li>
+                                    </ul>
+                                  </div>
+                                </div>
+                          </div>
+                        </div>
+                
+                      <h5 class="card-title mt-3">VLAN collegate</h5>
+                        <div class="card my-2 ms-4 border-warning">
+                          <div class="card-header">
+                            VLAN: Default (ID: 0)
+                          </div>
+                          <div class="card-body">
+                            <ul class="mb-0">
+                              <li><strong>MTU:</strong> 1500</li>
+                              <li><strong>Subnet:</strong> 255.255.255.0</li>
+                              <li><strong>Gateway IP:</strong> 192.168.0.1</li>
+                              <li><strong>Range IP:</strong> 192.168.0.2 - 192.168.0.254</li>
+                            </ul>
+                          </div>
+                        </div>
+                  </div>
+                </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sezione VLAN -->
+    <div class="accordion mb-4" id="accordionVLAN">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingVLAN">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVLAN" aria-expanded="false" aria-controls="collapseVLAN">
+            VLANs
+          </button>
+        </h2>
+        <div id="collapseVLAN" class="accordion-collapse collapse" aria-labelledby="headingVLAN" data-bs-parent="#accordionVLAN">
+          <div class="accordion-body">
+                <div class="card my-2 ms-4 border-warning">
+                  <div class="card-header">
+                    VLAN: Default (ID: 0)
+                  </div>
+                  <div class="card-body">
+                    <ul class="mb-0">
+                      <li><strong>MTU:</strong> 1500</li>
+                      <li><strong>Subnet:</strong> 255.255.255.0</li>
+                      <li><strong>Gateway IP:</strong> 192.168.0.1</li>
+                      <li><strong>Range IP:</strong> 192.168.0.2 - 192.168.0.254</li>
+                    </ul>
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sezione Wifi -->
+    <div class="accordion mb-4" id="accordionWifi">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingWifi">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWifi" aria-expanded="false" aria-controls="collapseWifi">
+            Wi-Fi
+          </button>
+        </h2>
+        <div id="collapseWifi" class="accordion-collapse collapse" aria-labelledby="headingWifi" data-bs-parent="#accordionWifi">
+          <div class="accordion-body">
+                <div class="card my-2 ms-4 border-primary">
+                  <div class="card-header">
+                    Wifi: HOME 2.4
+                  </div>
+                  <div class="card-body">
+                    <ul class="mb-0">
+                      <li><strong>SSID:</strong> HOME</li>
+                      <li><strong>Frequenza:</strong> Ghz_2_4</li>
+                      <li><strong>Canale:</strong> 11</li>
+                      <li><strong>Autenticazione:</strong> shared</li>
+                      <li><strong>Cifratura:</strong> aes_ccm</li>
+                      <li><strong>IP interno:</strong> 192.168.0.2</li>
+                    </ul>
+                    <p class="mt-2">
+                      <strong>VLAN associata:</strong>  
+                      <div class="card my-2 ms-4 border-warning">
+                        <div class="card-header">
+                          VLAN: Default (ID: 0)
+                        </div>
+                        <div class="card-body">
+                          <ul class="mb-0">
+                            <li><strong>MTU:</strong> 1500</li>
+                            <li><strong>Subnet:</strong> 255.255.255.0</li>
+                            <li><strong>Gateway IP:</strong> 192.168.0.1</li>
+                            <li><strong>Range IP:</strong> 192.168.0.2 - 192.168.0.254</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </p>
+                  </div>
+                </div>
+                <div class="card my-2 ms-4 border-primary">
+                  <div class="card-header">
+                    Wifi: HOME 5
+                  </div>
+                  <div class="card-body">
+                    <ul class="mb-0">
+                      <li><strong>SSID:</strong> HOME</li>
+                      <li><strong>Frequenza:</strong> Ghz_5</li>
+                      <li><strong>Canale:</strong> 140</li>
+                      <li><strong>Autenticazione:</strong> open</li>
+                      <li><strong>Cifratura:</strong> aes_ccm</li>
+                      <li><strong>IP interno:</strong> 192.168.0.2</li>
+                    </ul>
+                    <p class="mt-2">
+                      <strong>VLAN associata:</strong>  
+                      <div class="card my-2 ms-4 border-warning">
+                        <div class="card-header">
+                          VLAN: Default (ID: 0)
+                        </div>
+                        <div class="card-body">
+                          <ul class="mb-0">
+                            <li><strong>MTU:</strong> 1500</li>
+                            <li><strong>Subnet:</strong> 255.255.255.0</li>
+                            <li><strong>Gateway IP:</strong> 192.168.0.1</li>
+                            <li><strong>Range IP:</strong> 192.168.0.2 - 192.168.0.254</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </p>
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+<!-- Bootstrap JS -->
+<script 
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
+  crossorigin="anonymous"
+></script>
+
+</body>
+</html>

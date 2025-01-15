@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<NALITE:Network xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:NALITE="https://it.univaq.disim.mde/NALITE" name="Gateway Dipenditi Coppito" publicIpAddres="185.224.114.19">
+  <vlans name="Default" mtu="1500" subnet="255.255.255.0" ipGateway="172.20.0.1" lowerIp="172.20.0.2" upperIp="172.20.0.254"/>
+  <vlans name="1" idVLan="1" mtu="1500" subnet="255.255.255.0" ipGateway="192.168.0.1" lowerIp="192.168.0.2" upperIp="192.168.0.254"/>
+  <vlans name="2" idVLan="2" mtu="1500" subnet="255.255.255.0" ipGateway="192.168.2.1" lowerIp="192.168.2.2" upperIp="192.168.2.254"/>
+  <gateway name="Dipendenti Coppito" internalIpAddress="172.20.0.1" model="Cisco" osVersion="1.200.125a" operatingSystem="Cisco IoS" portNumber="2" vlan="//@vlans.0">
+    <router name="Reti Dipendenti Coppito" internalIpAddress="172.20.0.2" model="Cisco Router" osVersion="1.200.125a" operatingSystem="Cisco IoS" portNumber="16" vlans="//@vlans.0">
+      <switchL3 name="Switch Edifico C1 piano 1" internalIpAddress="172.20.0.3" model="Cisco Catalyst serie 9400" osVersion="1.200.125b" operatingSystem="Cisco IoS" portNumber="32" routingProtocol="OSPF" vlans="//@vlans.0 //@vlans.1 //@vlans.2">
+        <accessPoints name="Edificio C1 piano 1" internalIpAddress="170.20.0.4" model="Catalyst 9100 Access Points" osVersion="1.200.125b" operatingSystem="Cisco IoS" portNumber="1" maxClientSupport="300" wifis="//@wifis.0 //@wifis.1 //@wifis.2 //@wifis.3" vlan="//@vlans.0"/>
+      </switchL3>
+      <switchL3 name="Switch Edifico C1 piano 2" internalIpAddress="172.20.0.5" model="Cisco Catalyst serie 9400" osVersion="1.200.125b" operatingSystem="Cisco IoS" portNumber="32" routingProtocol="OSPF" vlans="//@vlans.0 //@vlans.1 //@vlans.2">
+        <switchL2 name="Switch C1 piano 2 Stanza 2.25" internalIpAddress="172.20.0.7" model="Cisco Catalyst serie 9600" osVersion="1.200.125c" operatingSystem="Cisco IoS" portNumber="16" portType="Access" vlans="//@vlans.0 //@vlans.1 //@vlans.2"/>
+        <accessPoints name="Edificio C1 piano 2" internalIpAddress="170.20.0.6" model="Catalyst 9100 Access Points" osVersion="Cisco IoS" operatingSystem="1.200.125b" portNumber="1" maxClientSupport="300" wifis="//@wifis.0 //@wifis.1 //@wifis.2 //@wifis.3" vlan="//@vlans.0"/>
+      </switchL3>
+    </router>
+  </gateway>
+  <wifis name="UNIVAQ 2.4" ssid="UNIVAQ" channel="11" internalIpAddress="192.168.0.2" vlan="//@vlans.1"/>
+  <wifis name="UNIVAQ 5" ssid="UNIVAQ" frequency="Ghz_5" channel="140" authentication="open" internalIpAddress="192.168.0.2" vlan="//@vlans.1"/>
+  <wifis name="Eduroam 2.4" ssid="Eduroam" channel="5" internalIpAddress="192.168.2.2" vlan="//@vlans.2"/>
+  <wifis name="Eduroam 5" ssid="Eduroam" frequency="Ghz_5" channel="144" authentication="open" internalIpAddress="192.168.2.2" vlan="//@vlans.2"/>
+</NALITE:Network>

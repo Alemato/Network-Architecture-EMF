@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated NetworkArchitectureLite -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="NetworkArchitectureLite.presentation.NetworkArchitectureLiteModelWizardID"
+            name="%_UI_NetworkArchitectureLiteModelWizard_label"
+            class="NetworkArchitectureLite.presentation.NetworkArchitectureLiteModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/NetworkArchitectureLiteModelFile.gif">
+         <description>%_UI_NetworkArchitectureLiteModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated NetworkArchitectureLite -->
+      <editor
+            id="NetworkArchitectureLite.presentation.NetworkArchitectureLiteEditorID"
+            name="%_UI_NetworkArchitectureLiteEditor_label"
+            icon="icons/full/obj16/NetworkArchitectureLiteModelFile.gif"
+            extensions="networkarchitecturelite"
+            class="NetworkArchitectureLite.presentation.NetworkArchitectureLiteEditor"
+            contributorClass="NetworkArchitectureLite.presentation.NetworkArchitectureLiteActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

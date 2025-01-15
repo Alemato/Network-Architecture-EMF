@@ -1,0 +1,310 @@
+[comment encoding = UTF-8 /]
+[module generate('https://it.univaq.disim.mde/NALITE')]
+
+[comment
+ * Template principale: genera un solo file HTML con tutte le informazioni di un Network,
+ * e utilizza Bootstrap 5 per la grafica.
+/]
+[template public generateElement(aNetwork : Network)]
+[comment @main/]
+    [file (aNetwork.name + '.html', false, 'UTF-8')]
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>All in One - [aNetwork.name/]</title>
+    <!-- Bootstrap CSS -->
+    <link 
+      rel="stylesheet" 
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+      crossorigin="anonymous"
+    >
+</head>
+<body class="bg-light">
+
+<div class="container my-5">
+
+    <div class="card mb-4">
+      <div class="card-body">
+        <h1 class="card-title text-primary">Network: [aNetwork.name/]</h1>
+        <p class="card-text">
+          <strong>Public IP:</strong> [aNetwork.publicIpAddres/]
+        </p>
+      </div>
+    </div>
+
+    <!-- Sezione Gateway -->
+    <div class="accordion mb-4" id="accordionGateway">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingGateway">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGateway" aria-expanded="false" aria-controls="collapseGateway">
+            Gateway
+          </button>
+        </h2>
+        <div id="collapseGateway" class="accordion-collapse collapse" aria-labelledby="headingGateway" data-bs-parent="#accordionGateway">
+          <div class="accordion-body">
+
+            [if (aNetwork.gateway <> null)]
+              <p>
+                <strong>Nome:</strong> [aNetwork.gateway.name/]<br/>
+                <strong>Modello:</strong> [aNetwork.gateway.model/]<br/>
+                <strong>OS:</strong> [aNetwork.gateway.operatingSystem/] ([aNetwork.gateway.osVersion/])<br/>
+                <strong>Porta:</strong> [aNetwork.gateway.portNumber/]<br/>
+                <strong>Tecnologia:</strong> [aNetwork.gateway.tecnology.toString()/]<br/>
+                <strong>NAT:</strong> [aNetwork.gateway.nat.toString()/]
+              </p>
+              [comment Se c'è un router dentro il gateway, stampiamolo /]
+              [if (aNetwork.gateway.router <> null)]
+                [printRouter(aNetwork.gateway.router)/]
+              [/if]
+            [else]
+              <p>Nessun gateway presente.</p>
+            [/if]
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sezione VLAN -->
+    <div class="accordion mb-4" id="accordionVLAN">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingVLAN">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVLAN" aria-expanded="false" aria-controls="collapseVLAN">
+            VLANs
+          </button>
+        </h2>
+        <div id="collapseVLAN" class="accordion-collapse collapse" aria-labelledby="headingVLAN" data-bs-parent="#accordionVLAN">
+          <div class="accordion-body">
+            [if (not aNetwork.vlans->isEmpty())]
+              [for (v : VLAN | aNetwork.vlans)]
+                [printVLAN(v)/]
+              [/for]
+            [else]
+              <p>Nessuna VLAN presente.</p>
+            [/if]
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sezione Wifi -->
+    <div class="accordion mb-4" id="accordionWifi">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingWifi">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWifi" aria-expanded="false" aria-controls="collapseWifi">
+            Wi-Fi
+          </button>
+        </h2>
+        <div id="collapseWifi" class="accordion-collapse collapse" aria-labelledby="headingWifi" data-bs-parent="#accordionWifi">
+          <div class="accordion-body">
+            [if (not aNetwork.wifis->isEmpty())]
+              [for (w : Wifi | aNetwork.wifis)]
+                [printWifi(w)/]
+              [/for]
+            [else]
+              <p>Nessuna rete Wi-Fi presente.</p>
+            [/if]
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+<!-- Bootstrap JS -->
+<script 
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
+  crossorigin="anonymous"
+></script>
+
+</body>
+</html>
+    [/file]
+[/template]
+
+
+[comment
+ * Template privato: stampa i dettagli di un Router inline (usando card di Bootstrap).
+/]
+[template private printRouter(aRouter : Router)]
+<div class="card mt-3">
+  <div class="card-header bg-secondary text-white">
+    Router: [aRouter.name/]
+  </div>
+  <div class="card-body">
+    <p class="card-text">
+      <strong>Modello:</strong> [aRouter.model/]<br/>
+      <strong>OS:</strong> [aRouter.operatingSystem/] ([aRouter.osVersion/])<br/>
+      <strong>IP interno:</strong> [aRouter.internalIpAddress/]<br/>
+      <strong>Port Number:</strong> [aRouter.portNumber/]<br/>
+      <strong>Routing Protocol:</strong> [aRouter.routingProtocol.toString()/]
+    </p>
+
+    [comment Switch L3 collegati al Router, se presenti /]
+    [if (not aRouter.switchL3->isEmpty())]
+      <h5 class="card-title mt-3">Switch L3 collegati</h5>
+      [for (s3 : SwitchL3 | aRouter.switchL3)]
+        [printSwitchL3(s3)/]
+      [/for]
+    [/if]
+
+    [comment VLAN collegate direttamente al Router /]
+    [if (not aRouter.vlans->isEmpty())]
+      <h5 class="card-title mt-3">VLAN collegate</h5>
+      [for (v : VLAN | aRouter.vlans)]
+        [printVLAN(v)/]
+      [/for]
+    [/if]
+  </div>
+</div>
+[/template]
+
+
+[comment
+ * Template privato: stampa i dettagli di uno Switch L3 inline
+   (usando card di Bootstrap).
+/]
+[template private printSwitchL3(aSwitch : SwitchL3)]
+<div class="card my-2 ms-3 border-dark">
+  <div class="card-header">
+    Switch L3: [aSwitch.name/]
+  </div>
+  <div class="card-body">
+    <p>
+      <strong>Modello:</strong> [aSwitch.model/]<br/>
+      <strong>OS:</strong> [aSwitch.operatingSystem/] ([aSwitch.osVersion/])<br/>
+      <strong>IP interno:</strong> [aSwitch.internalIpAddress/]<br/>
+      <strong>Porte:</strong> [aSwitch.portNumber/]<br/>
+      <strong>Routing Protocol:</strong> [aSwitch.routingProtocol.toString()/]
+    </p>
+
+    [if (not aSwitch.switchL2->isEmpty())]
+      <h6>Switch L2 collegati</h6>
+      [for (s2 : SwitchL2 | aSwitch.switchL2)]
+        [printSwitchL2(s2)/]
+      [/for]
+    [/if]
+
+    [if (not aSwitch.accessPoints->isEmpty())]
+      <h6>Access Points collegati</h6>
+      [for (ap : AccessPoint | aSwitch.accessPoints)]
+        [printAccessPoint(ap)/]
+      [/for]
+    [/if]
+
+    [if (not aSwitch.vlans->isEmpty())]
+      <h6>VLAN collegate</h6>
+      [for (v : VLAN | aSwitch.vlans)]
+        [printVLAN(v)/]
+      [/for]
+    [/if]
+  </div>
+</div>
+[/template]
+
+[comment
+ * Template privato: stampa i dettagli di uno Switch L2 inline
+   (usando card di Bootstrap).
+/]
+[template private printSwitchL2(aSwitch : SwitchL2)]
+<div class="card my-2 ms-4 border-secondary">
+  <div class="card-header">
+    Switch L2: [aSwitch.name/]
+  </div>
+  <div class="card-body">
+    <p>
+      <strong>Modello:</strong> [aSwitch.model/]<br/>
+      <strong>OS:</strong> [aSwitch.operatingSystem/] ([aSwitch.osVersion/])<br/>
+      <strong>IP interno:</strong> [aSwitch.internalIpAddress/]<br/>
+      <strong>Porte:</strong> [aSwitch.portNumber/]<br/>
+      <strong>Port type:</strong> [aSwitch.portType.toString()/]
+    </p>
+
+    [if (not aSwitch.vlans->isEmpty())]
+      <h6>VLAN collegate</h6>
+      [for (v : VLAN | aSwitch.vlans)]
+        [printVLAN(v)/]
+      [/for]
+    [/if]
+  </div>
+</div>
+[/template]
+
+[comment
+ * Template privato: stampa i dettagli di uno AccessPoint inline
+   (usando card di Bootstrap).
+/]
+[template private printAccessPoint(anAP : AccessPoint)]
+<div class="card my-2 ms-4 border-info">
+  <div class="card-header">
+    Access Point: [anAP.name/]
+  </div>
+  <div class="card-body">
+    <p>
+      <strong>Modello:</strong> [anAP.model/]<br/>
+      <strong>OS:</strong> [anAP.operatingSystem/] ([anAP.osVersion/])<br/>
+      <strong>IP interno:</strong> [anAP.internalIpAddress/]<br/>
+      <strong>Porte:</strong> [anAP.portNumber/]<br/>
+      <strong>Max Client Support:</strong> [anAP.maxClientSupport/]
+    </p>
+
+    <p>
+      <strong>VLAN di appartenenza:</strong>
+      [printVLAN(anAP.vlan)/]
+    </p>
+
+    [if (not anAP.wifis->isEmpty())]
+      <h6>Wifi collegate</h6>
+      [for (w : Wifi | anAP.wifis)]
+        [printWifi(w)/]
+      [/for]
+    [/if]
+  </div>
+</div>
+[/template]
+
+[comment
+ * Template privato: stampa i dettagli di uno VLAN inline
+   (usando card di Bootstrap).
+/]
+[template private printVLAN(aVLAN : VLAN)]
+<div class="card my-2 ms-4 border-warning">
+  <div class="card-header">
+    VLAN: [aVLAN.name/] (ID: [aVLAN.idVLan/])
+  </div>
+  <div class="card-body">
+    <ul class="mb-0">
+      <li><strong>MTU:</strong> [aVLAN.mtu/]</li>
+      <li><strong>Subnet:</strong> [aVLAN.subnet/]</li>
+      <li><strong>Gateway IP:</strong> [aVLAN.ipGateway/]</li>
+      <li><strong>Range IP:</strong> [aVLAN.lowerIp/] - [aVLAN.upperIp/]</li>
+    </ul>
+  </div>
+</div>
+[/template]
+
+[comment
+ * Template privato: stampa i dettagli di uno Wifi inline
+   (usando card di Bootstrap).
+/]
+[template private printWifi(aWifi : Wifi)]
+<div class="card my-2 ms-4 border-primary">
+  <div class="card-header">
+    Wifi: [aWifi.name/]
+  </div>
+  <div class="card-body">
+    <ul class="mb-0">
+      <li><strong>SSID:</strong> [aWifi.ssid/]</li>
+      <li><strong>Frequenza:</strong> [aWifi.frequency.toString()/]</li>
+      <li><strong>Canale:</strong> [aWifi.channel/]</li>
+      <li><strong>Autenticazione:</strong> [aWifi.authentication.toString()/]</li>
+      <li><strong>Cifratura:</strong> [aWifi.encryption.toString()/]</li>
+      <li><strong>IP interno:</strong> [aWifi.internalIpAddress/]</li>
+    </ul>
+    <p class="mt-2">
+      <strong>VLAN associata:</strong>  
+      [printVLAN(aWifi.vlan)/]
+    </p>
+  </div>
+</div>
+[/template]

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="NetworkArchitectureLite" nsURI="https://it.univaq.disim.mde/NALITE"
+    nsPrefix="NALITE">
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NetworkDevice" abstract="true" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="internalIpAddress" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="model" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="osVersion" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operatingSystem" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="portNumber" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Network" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="publicIpAddres" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vlans" lowerBound="1" upperBound="-1"
+        eType="#//VLAN" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gateway" lowerBound="1"
+        eType="#//Gateway" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wifis" upperBound="-1"
+        eType="#//Wifi" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Gateway" eSuperTypes="#//NetworkDevice">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tecnology" lowerBound="1"
+        eType="#//GatewayTechnology"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nat" lowerBound="1" eType="#//NATTechnology"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="router" lowerBound="1"
+        eType="#//Router" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vlan" lowerBound="1" eType="#//VLAN"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Router" eSuperTypes="#//NetworkDevice">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="routingProtocol" lowerBound="1"
+        eType="#//RoutingProtocol"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="switchL3" upperBound="-1"
+        eType="#//SwitchL3" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vlans" lowerBound="1" upperBound="-1"
+        eType="#//VLAN"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SwitchL3" eSuperTypes="#//NetworkDevice">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="routingProtocol" lowerBound="1"
+        eType="#//RoutingProtocol"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="switchL2" upperBound="-1"
+        eType="#//SwitchL2" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accessPoints" ordered="false"
+        upperBound="-1" eType="#//AccessPoint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vlans" lowerBound="1" upperBound="-1"
+        eType="#//VLAN"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AccessPoint" eSuperTypes="#//NetworkDevice">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxClientSupport" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wifis" unique="false" lowerBound="1"
+        upperBound="-1" eType="#//Wifi"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vlan" lowerBound="1" eType="#//VLAN"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Wifi" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ssid" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="frequency" lowerBound="1"
+        eType="#//OperatingFrequency"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="channel" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="authentication" lowerBound="1"
+        eType="#//AuthenticationWifi"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="encryption" lowerBound="1"
+        eType="#//EncryptionModeWifi"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="internalIpAddress" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vlan" lowerBound="1" eType="#//VLAN"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SwitchL2" eSuperTypes="#//NetworkDevice">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="portType" lowerBound="1"
+        eType="#//PortType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vlans" lowerBound="1" upperBound="-1"
+        eType="#//VLAN"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VLAN" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idVLan" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mtu" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subnet" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ipGateway" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lowerIp" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="upperIp" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GatewayTechnology">
+    <eLiterals name="IP"/>
+    <eLiterals name="LTE" value="1"/>
+    <eLiterals name="FiveG" value="2"/>
+    <eLiterals name="Coaxial" value="3"/>
+    <eLiterals name="UMTS" value="4"/>
+    <eLiterals name="ADSL" value="5"/>
+    <eLiterals name="ADSL_Plus" value="6"/>
+    <eLiterals name="ADSL_2" value="7"/>
+    <eLiterals name="FTTC" value="8"/>
+    <eLiterals name="FTTH" value="9"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="NATTechnology">
+    <eLiterals name="Static_NAT"/>
+    <eLiterals name="Dynamic_NAT" value="1"/>
+    <eLiterals name="Port_Address_Translation" value="2"/>
+    <eLiterals name="One_To_One_NAT" value="3"/>
+    <eLiterals name="Dual_NAT" value="4"/>
+    <eLiterals name="Twice_NAT" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RoutingProtocol">
+    <eLiterals name="RIP"/>
+    <eLiterals name="OSPF" value="1"/>
+    <eLiterals name="EIGRP" value="2"/>
+    <eLiterals name="IS_IS" value="3"/>
+    <eLiterals name="BGP" value="4"/>
+    <eLiterals name="IGRP" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AuthenticationWifi">
+    <eLiterals name="shared"/>
+    <eLiterals name="open" value="1"/>
+    <eLiterals name="wpa_version_2" value="2"/>
+    <eLiterals name="sea" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EncryptionModeWifi">
+    <eLiterals name="aes_ccm"/>
+    <eLiterals name="wep" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OperatingFrequency">
+    <eLiterals name="Ghz_2_4"/>
+    <eLiterals name="Ghz_5" value="1"/>
+    <eLiterals name="Ghz_6" value="2"/>
+    <eLiterals name="Ghz_60" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PortType">
+    <eLiterals name="Voip"/>
+    <eLiterals name="Access" value="1"/>
+    <eLiterals name="Trunk" value="2"/>
+  </eClassifiers>
+</ecore:EPackage>

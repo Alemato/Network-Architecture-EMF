@@ -1,0 +1,196 @@
+-- @path NALITE=/NetworkArchitecture2NetworkArchitectureLite/metamodel/NetworkArchitectureLite.ecore
+-- @path NA=/NetworkArchitecture2NetworkArchitectureLite/metamodel/NetworkArchitecture.ecore
+
+module NetworkArchitecture2NetworkArchitectureLite;
+create OUT : NALITE from IN : NA;
+
+-- =============================================================================
+-- HELPER : computedPortNumber
+-- =============================================================================
+-- In questo helper calcoliamo il valore di "portNumber" per il Gateway, 
+-- Il "portNumber" è il numero di porte fisiche e/o virtuali che ha un dispositivo. 
+-- Partiamo da 1 porta "fisica" di base (basePorts), 
+-- dopodiché sommiamo il numero di VLAN associate al Router (router.vlans->size()). 
+-- Se il Gateway non ha un Router definito, restituiamo semplicemente basePorts.
+helper context NA!Gateway def : computedPortNumber() : Integer =
+    if self.oclIsUndefined() then -- Gestire situazioni in cui l’oggetto Gateway è null
+        0
+    else
+        -- Esempio: partiamo da 1 porta “fisica”
+        let basePorts : Integer = 1 in
+        -- Sommiamo il numero di VLAN associati al Gateway tramite la reference “router”
+        -- e la reference “vlans” di quest’ultimo
+        if self.router.oclIsUndefined() then
+            basePorts
+        else
+            basePorts + self.router.vlans->size()
+        endif
+    endif;
+
+-- =============================================================================
+-- 1) RULE: Network -> Network
+-- =============================================================================
+rule Network2Network {
+    from s : NA!Network
+    to   t : NALITE!Network (
+        name             <- s.name,
+        publicIpAddres   <- s.publicIpAddres,
+        vlans            <- s.vlans,
+        gateway          <- s.gateway,
+        wifis            <- s.wifis
+    )
+}
+
+-- =============================================================================
+-- 2) RULE: VLAN -> VLAN
+-- =============================================================================
+rule VLAN2VLAN {
+    from s : NA!VLAN
+    to   t : NALITE!VLAN (
+        name       <- s.name,
+        idVLan     <- s.idVLan,
+        mtu        <- s.mtu,
+        subnet     <- s.subnet,
+        ipGateway  <- s.ipGateway,
+        lowerIp    <- s.lowerIp,
+        upperIp    <- s.upperIp
+    )
+}
+
+-- =============================================================================
+-- 3) RULE: Gateway -> Gateway
+--    N.B.: Il metamodel sorgente Gateway NON ha `portNumber`, ma in NALITE!Gateway
+--    eredita da NetworkDevice, in cui portNumber è obbligatorio.
+--    Quindi usiamo l'Helper che abbiamo scritto prima
+-- =============================================================================
+rule Gateway2Gateway {
+    from s : NA!Gateway
+    to   t : NALITE!Gateway (
+        -- campi di NamedElement/FirmwareElement/InternalIpAddressElement
+        name              <- s.name,
+        internalIpAddress <- s.internalIpAddress,
+        model             <- s.model,
+        osVersion         <- s.osVersion,
+        operatingSystem   <- s.operatingSystem,
+
+        -- portNumber di default dal Helper 
+        portNumber        <- s.computedPortNumber(),
+
+        -- campi specifici di Gateway
+        tecnology         <- s.tecnology,
+        nat               <- s.nat,
+        vlan              <- s.vlan,
+        router            <- s.router
+    )
+}
+
+-- =============================================================================
+-- 4) RULE: Router -> Router
+-- =============================================================================
+rule Router2Router {
+    from s : NA!Router
+    to   t : NALITE!Router (
+        -- attributi di NamedElement/InternalIpAddressElement/FirmwareElement/PortNumberElement
+        name              <- s.name,
+        internalIpAddress <- s.internalIpAddress,
+        model             <- s.model,
+        osVersion         <- s.osVersion,
+        operatingSystem   <- s.operatingSystem,
+        portNumber        <- s.portNumber,
+
+        -- attributo aggiuntivo 
+        routingProtocol   <- s.routingProtocol,
+
+        -- reference
+        switchL3          <- s.switchL3,
+        vlans             <- s.vlans
+        -- N.B. Non trasformiamo eventuali 'staticRoute' perché non esiste in NALITE
+    )
+}
+
+-- =============================================================================
+-- 5) RULE: SwitchL3 -> SwitchL3
+-- =============================================================================
+rule SwitchL3toSwitchL3 {
+    from s : NA!SwitchL3
+    to   t : NALITE!SwitchL3 (
+        -- attributi di NamedElement/InternalIpAddressElement/FirmwareElement/PortNumberElement
+        name              <- s.name,
+        internalIpAddress <- s.internalIpAddress,
+        model             <- s.model,
+        osVersion         <- s.osVersion,
+        operatingSystem   <- s.operatingSystem,
+        portNumber        <- s.portNumber,
+
+        -- attributo aggiuntivo
+        routingProtocol   <- s.routingProtocol,
+
+        -- reference
+        switchL2          <- s.switchL2,
+        accessPoints      <- s.accessPoints,
+        vlans             <- s.vlans
+        -- N.B. Non trasformiamo le 'staticRoute' perché non esiste in NALITE
+    )
+}
+
+-- =============================================================================
+-- 6) RULE: SwitchL2 -> SwitchL2
+-- =============================================================================
+rule SwitchL2toSwitchL2 {
+    from s : NA!SwitchL2
+    to   t : NALITE!SwitchL2 (
+        -- attributi ereditati da NetworkDevice
+        name              <- s.name,
+        internalIpAddress <- s.internalIpAddress,
+        model             <- s.model,
+        osVersion         <- s.osVersion,
+        operatingSystem   <- s.operatingSystem,
+        portNumber        <- s.portNumber,
+
+        -- attributo aggiuntivo
+        portType          <- s.portType,
+
+        -- reference
+        vlans             <- s.vlans
+    )
+}
+
+-- =============================================================================
+-- 7) RULE: AccessPoint -> AccessPoint
+-- =============================================================================
+rule AccessPoint2AccessPoint {
+    from s : NA!AccessPoint
+    to   t : NALITE!AccessPoint (
+        -- attributi ereditati da NetworkDevice
+        name              <- s.name,
+        internalIpAddress <- s.internalIpAddress,
+        model             <- s.model,
+        osVersion         <- s.osVersion,
+        operatingSystem   <- s.operatingSystem,
+        portNumber        <- s.portNumber,
+
+        -- attributo specifico
+        maxClientSupport  <- s.maxClientSupport,
+
+        -- reference
+        wifis             <- s.wifis,
+        vlan              <- s.vlan
+    )
+}
+
+-- =============================================================================
+-- 8) RULE: Wifi -> Wifi
+-- =============================================================================
+rule Wifi2Wifi {
+    from s : NA!Wifi
+    to   t : NALITE!Wifi (
+        name               <- s.name,
+        ssid               <- s.ssid,
+        frequency          <- s.frequency,
+        channel            <- s.channel,
+        authentication     <- s.authentication,
+        encryption         <- s.encryption,
+        internalIpAddress  <- s.internalIpAddress,
+        vlan               <- s.vlan
+    )
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<NALITE:Network
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:NALITE="https://it.univaq.disim.mde/NALITE"
+    name="Gateway Home"
+    publicIpAddres="185.224.114.19">
+  <vlans name="Default"
+      mtu="1500"
+      subnet="255.255.255.0"
+      ipGateway="192.168.0.1"
+      lowerIp="192.168.0.2"
+      upperIp="192.168.0.254"/>
+  <gateway name="Home"
+      internalIpAddress="192.168.0.1"
+      model="FRITZ!Box 5690 Pro"
+      osVersion="7.90"
+      operatingSystem="FRITZ!OS"
+      portNumber="2">
+    <router
+        name="Home"
+        internalIpAddress="192.168.0.1"
+        model="FRITZ!Box 5690 Pro"
+        osVersion="7.90"
+        operatingSystem="FRITZ!OS"
+        portNumber="5"
+        vlans="//@vlans.0">
+      <switchL3
+          name="Home"
+          internalIpAddress="192.168.0.1"
+          model="FRITZ!Box 5690 Pro"
+          osVersion="7.90"
+          operatingSystem="FRITZ!OS"
+          portNumber="5"
+          routingProtocol="OSPF"
+          vlans="//@vlans.0">
+        <accessPoints
+            name="Home"
+            internalIpAddress="192.168.0.1"
+            model="FRITZ!Box 5690 Pro"
+            osVersion="7.90"
+            operatingSystem="FRITZ!OS"
+            portNumber="1"
+            maxClientSupport="300"
+            wifis="//@wifis.0 //@wifis.1"
+            vlan="//@vlans.0"/>
+      </switchL3>
+    </router>
+  </gateway>
+  <wifis name="HOME 2.4"
+      ssid="HOME"
+      channel="11"
+      internalIpAddress="192.168.0.2"
+      vlan="//@vlans.0"/>
+  <wifis name="HOME 5"
+      ssid="HOME"
+      frequency="Ghz_5"
+      channel="140"
+      authentication="open"
+      internalIpAddress="192.168.0.2"
+      vlan="//@vlans.0"/>
+</NALITE:Network>
